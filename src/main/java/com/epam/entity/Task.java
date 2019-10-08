@@ -1,4 +1,4 @@
-package entity;
+package com.epam.entity;
 
 public class Task {
     private Integer task_id;

@@ -1,4 +1,4 @@
-package entity;
+package com.epam.entity;
 
 public class User {
     private Integer user_id;
