@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 @Repository("userRepository")
 public class UserRepositoryImpl implements UserRepository {
 
 
-    Map<Long, User> userMap;
+    TreeMap<Long, User> userMap;
 
     @Autowired
     @Qualifier( "users")
-    public void setUserMap(Map<Long, User> userMap) {
+    public void setUserMap(TreeMap<Long, User> userMap) {
         this.userMap = userMap;
     }
 

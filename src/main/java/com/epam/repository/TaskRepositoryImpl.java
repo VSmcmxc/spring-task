@@ -9,16 +9,17 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 @Repository("taskRepository")
 public class TaskRepositoryImpl implements TaskRepository {
 
 
-    private Map<Long, Task> taskMap;
+    private TreeMap<Long, Task> taskMap;
 
     @Autowired
     @Qualifier("tasks")
-    public void setTaskMap(Map<Long, Task> taskMap) {
+    public void setTaskMap(TreeMap<Long, Task> taskMap) {
         this.taskMap = taskMap;
     }
 
