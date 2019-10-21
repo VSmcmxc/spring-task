@@ -1,6 +1,0 @@
-com\epam\configuration\DBConfiguration.class
-com\epam\entity\Task.class
-com\epam\entity\User.class
-com\epam\entity\Role.class
-com\epam\HelloServlet.class
-com\epam\MainApplication.class

@@ -1,10 +1,17 @@
 package com.epam.entity;
 
+
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(exclude = { "userId" })
 public class User {
-    private Integer user_id;
-    private String user_name;
-    private String user_email;
+    @Generated
+    private Long userId;
+    private String userName;
+    private String userEmail;
     private String password;
-    private Role user_role;
-    private String subscribe;
+
 }

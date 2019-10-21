@@ -1,3 +1,4 @@
+/*
 package com.epam.configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -21,14 +22,17 @@ public class DBConfiguration {
                 .build();
     }
 
-    /**
+    */
+/**
      * Create jdbc template for HSQLDB.
      *
      * @return hsql database jdbc template.
-     */
+     *//*
+
     @Bean
     public JdbcTemplate hsqlTemplate() {
         return new JdbcTemplate(hsqlDataSource());
     }
 }
 
+*/
