@@ -48,4 +48,7 @@ public class UserController {
         return userService.markTaskAsUncompleted(task);
     }
 
+    public  List<User> getAllUsers (){return userService.getAllUsers();}
+
+
 }

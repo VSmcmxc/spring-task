@@ -23,4 +23,5 @@ public interface UserService {
     Boolean markTaskAsCompleted(Task task);
 
     Boolean markTaskAsUncompleted(Task task);
+    List<User> getAllUsers();
 }

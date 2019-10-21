@@ -17,6 +17,4 @@ public class Task {
     private Boolean complete;
     private User user;
 
-
-
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
+
     @Autowired
     private TaskRepository taskRepository;
 
@@ -71,5 +72,10 @@ public class UserServiceImpl implements UserService {
     public Boolean markTaskAsUncompleted(Task task) {
         taskRepository.markTaskAsUncompleted(task);
         return true;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.getAll();
     }
 }
