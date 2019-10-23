@@ -6,7 +6,6 @@ import com.epam.controller.UserController;
 import com.epam.entity.Task;
 import com.epam.entity.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.util.DigestUtils;
 
 public class Main {
 
@@ -22,15 +21,25 @@ public class Main {
         System.out.println(userController.getUserById(1l));
         //userController.buySubscribe(userController.getUserById(1l));
 
-        userController.signUp(new User(5l,"Dfcz","Dacz@mail.ru","123"));
+        userController.signUp(new User(5l, "Dfcz", "Dacz@mail.ru", "123"));
         System.out.println(userController.getUserById(5l));
 
         System.out.println(userController.getAllUsers());
 
 
-        taskController.createTask(new Task(4l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(4l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
         System.out.println(taskController.findTasksByUser(userController.getUserById(1l)));
-        taskController.createTask(new Task(5l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(5l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
+       /* userController.buySubscribe(userController.getUserById(1l));
+        taskController.createTask(new Task(6l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(7l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(8l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(9l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(10l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(11l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(12l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(13l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
+        taskController.createTask(new Task(14l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));*/
 
     }
 }
