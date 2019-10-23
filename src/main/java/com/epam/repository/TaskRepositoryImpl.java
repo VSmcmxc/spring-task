@@ -22,16 +22,17 @@ public class TaskRepositoryImpl implements TaskRepository {
         this.taskMap = taskMap;
     }
 
-    @Override
+    @Override //Ты забыл вызвать метод getUser
     public List<Task> findAllTasksByUser(User user) {
         List<Task> tasks = new ArrayList<>();
         for (Map.Entry<Long, Task> entry : taskMap.entrySet()) {
-            if (entry.getValue().equals(user)) {
+            if (entry.getValue().getUser().equals(user)) {
                 tasks.add(entry.getValue());
             }
         }
         return tasks;
     }
+
 
     @Override
     public Boolean markTaskAsCompleted(Task task) {

@@ -5,9 +5,10 @@ import com.epam.entity.User;
 import com.epam.repository.TaskRepository;
 import com.epam.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service("taskService")
 public class TaskServiceImpl implements TaskService {
 
     private TaskRepository taskRepository;

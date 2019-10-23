@@ -12,7 +12,6 @@ import java.util.List;
 @Controller("userController")
 public class UserController {
 
-
     private UserService userService;
 
     @Autowired
@@ -33,6 +32,8 @@ public class UserController {
     }
 
     public  List<User> getAllUsers (){return userService.getAllUsers();}
+
+    public boolean buySubscribe (User user) {return userService.buySubscribe(user);}
 
 
 }

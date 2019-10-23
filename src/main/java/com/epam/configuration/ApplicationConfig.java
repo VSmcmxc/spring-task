@@ -3,14 +3,12 @@ package com.epam.configuration;
 
 import com.epam.entity.Task;
 import com.epam.entity.User;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 import java.util.TreeMap;
 
 @Configuration
+@EnableAspectJAutoProxy
 @ComponentScan(basePackages = { "com.epam.service","com.epam.controller","com.epam.repository"})
 public class ApplicationConfig {
 

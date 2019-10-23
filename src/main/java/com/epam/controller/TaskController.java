@@ -4,10 +4,13 @@ import com.epam.entity.Task;
 import com.epam.entity.User;
 import com.epam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+@Controller("taskController")
 public class TaskController {
+
     private TaskService taskService;
 
     @Autowired
