@@ -12,9 +12,13 @@ import java.util.List;
 @Controller("userController")
 public class UserController {
 
-    @Autowired
-    UserService userService;
 
+    private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     public User getUserById(Long id) {
         return userService.getUserById(id);
@@ -26,26 +30,6 @@ public class UserController {
 
     public boolean signUp(User user) {
         return userService.signUp(user);
-    }
-
-    public List<Task> findTasksByUser(User user) {
-        return userService.findTasksByUser(user);
-    }
-
-    public Task createTask(Task task, User user) {
-        return userService.createTask(task, user);
-    }
-
-    public Long deleteTask(Task task) {
-        return userService.deleteTask(task);
-    }
-
-    public boolean markTaskAsComplete(Task task) {
-        return userService.markTaskAsCompleted(task);
-    }
-
-    public boolean markTaskAsUncompleted(Task task) {
-        return userService.markTaskAsUncompleted(task);
     }
 
     public  List<User> getAllUsers (){return userService.getAllUsers();}

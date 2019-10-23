@@ -13,10 +13,9 @@ import java.util.TreeMap;
 public class UserRepositoryImpl implements UserRepository {
 
 
-    TreeMap<Long, User> userMap;
+    private TreeMap<Long, User> userMap;
 
     @Autowired
-    @Qualifier( "users")
     public void setUserMap(TreeMap<Long, User> userMap) {
         this.userMap = userMap;
     }

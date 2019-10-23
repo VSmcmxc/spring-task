@@ -18,7 +18,6 @@ public class TaskRepositoryImpl implements TaskRepository {
     private TreeMap<Long, Task> taskMap;
 
     @Autowired
-    @Qualifier("tasks")
     public void setTaskMap(TreeMap<Long, Task> taskMap) {
         this.taskMap = taskMap;
     }

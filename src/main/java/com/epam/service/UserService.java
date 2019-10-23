@@ -14,14 +14,5 @@ public interface UserService {
 
     User getUserById(Long id);
 
-    List<Task> findTasksByUser(User user);
-
-    Task createTask(Task task, User user);
-
-    Long deleteTask(Task task);
-
-    Boolean markTaskAsCompleted(Task task);
-
-    Boolean markTaskAsUncompleted(Task task);
     List<User> getAllUsers();
 }
