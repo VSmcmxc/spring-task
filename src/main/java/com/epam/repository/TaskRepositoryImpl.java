@@ -1,9 +1,9 @@
 package com.epam.repository;
 
+import com.epam.entity.Priority;
 import com.epam.entity.Task;
 import com.epam.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class TaskRepositoryImpl implements TaskRepository {
         this.taskMap = taskMap;
     }
 
-    @Override //Ты забыл вызвать метод getUser
+    @Override
     public List<Task> findAllTasksByUser(User user) {
         List<Task> tasks = new ArrayList<>();
         for (Map.Entry<Long, Task> entry : taskMap.entrySet()) {

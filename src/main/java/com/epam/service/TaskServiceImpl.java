@@ -1,5 +1,6 @@
 package com.epam.service;
 
+import com.epam.entity.Priority;
 import com.epam.entity.Task;
 import com.epam.entity.User;
 import com.epam.repository.TaskRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service("taskService")
 public class TaskServiceImpl implements TaskService {
 
@@ -18,6 +20,12 @@ public class TaskServiceImpl implements TaskService {
     public TaskServiceImpl(TaskRepository taskRepository, UserRepository userRepository) {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
+    }
+
+    @Override
+    public Task setTaskPriority(Priority priority, Task task) {
+        task.setPriority(priority);
+        return taskRepository.update(task);
     }
 
     @Override

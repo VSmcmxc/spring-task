@@ -28,7 +28,7 @@ public class Checker {
 
     @Around("handle()")
     public void checkSubscribe(ProceedingJoinPoint joinPoint) throws Throwable {
-        //System.out.println("hello");
+        //Подменил кастомный exception
         Object[] args = joinPoint.getArgs();
         User user = (User)args[1];
         if(!user.getSubscription().equals(DigestUtils.md5DigestAsHex(("secret".getBytes())))) {

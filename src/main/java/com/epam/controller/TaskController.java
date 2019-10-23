@@ -1,5 +1,6 @@
 package com.epam.controller;
 
+import com.epam.entity.Priority;
 import com.epam.entity.Task;
 import com.epam.entity.User;
 import com.epam.service.TaskService;
@@ -36,5 +37,13 @@ public class TaskController {
 
     public boolean markTaskAsUncompleted(Task task) {
         return taskService.markTaskAsUncompleted(task);
+    }
+
+    public Task setTaskPriority(Priority priority, Task task) {
+        return taskService.setTaskPriority(priority, task);
+    }
+
+    public Task getTaskById(Long id) {
+        return taskService.getById(id);
     }
 }

@@ -40,6 +40,7 @@ public class Main {
         taskController.createTask(new Task(12l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(13l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(14l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));*/
+        //System.out.println(taskController.setTaskPriority(Priority.IMPORTANT, taskController.getTaskById(1l)));
 
     }
 }

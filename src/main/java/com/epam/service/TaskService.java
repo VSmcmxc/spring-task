@@ -1,5 +1,6 @@
 package com.epam.service;
 
+import com.epam.entity.Priority;
 import com.epam.entity.Task;
 import com.epam.entity.User;
 
@@ -16,7 +17,9 @@ public interface TaskService {
 
     Boolean markTaskAsUncompleted(Task task);
 
-    Task updateTask (Task task);
+    Task updateTask(Task task);
 
-    Task getById (Long idTask);
+    Task getById(Long idTask);
+
+    Task setTaskPriority(Priority priority, Task task);
 }
