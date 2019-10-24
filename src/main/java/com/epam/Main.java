@@ -30,7 +30,7 @@ public class Main {
         taskController.createTask(new Task(4l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
         System.out.println(taskController.findTasksByUser(userController.getUserById(1l)));
         taskController.createTask(new Task(5l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
-       /* userController.buySubscribe(userController.getUserById(1l));
+        //userController.buySubscribe(userController.getUserById(1l));
         taskController.createTask(new Task(6l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(7l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(8l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
@@ -39,7 +39,7 @@ public class Main {
         taskController.createTask(new Task(11l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(12l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(13l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
-        taskController.createTask(new Task(14l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));*/
+        taskController.createTask(new Task(14l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         //System.out.println(taskController.setTaskPriority(Priority.IMPORTANT, taskController.getTaskById(1l)));
 
     }
