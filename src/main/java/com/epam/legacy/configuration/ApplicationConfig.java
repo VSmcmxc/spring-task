@@ -1,8 +1,9 @@
-package com.epam.configuration;
+/*
+package com.epam.legacy.configuration;
 
 
-import com.epam.entity.Task;
-import com.epam.entity.User;
+import com.epam.legacy.entity.Task;
+import com.epam.legacy.entity.User;
 import org.springframework.context.annotation.*;
 
 import java.util.TreeMap;
@@ -34,3 +35,4 @@ public class ApplicationConfig {
 
 
 }
+*/

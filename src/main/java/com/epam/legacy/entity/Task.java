@@ -1,4 +1,4 @@
-package com.epam.entity;
+package com.epam.legacy.entity;
 
 
 import lombok.Data;
@@ -16,7 +16,6 @@ public class Task {
     private User user;
     private Priority priority;
 
-    //По дефолту выставляется приоритет hight
     public Task(Long taskId, String description, Boolean complete, User user) {
         this.taskId = taskId;
         this.description = description;

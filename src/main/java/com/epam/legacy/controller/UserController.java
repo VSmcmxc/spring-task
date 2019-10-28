@@ -1,9 +1,8 @@
-package com.epam.controller;
+package com.epam.legacy.controller;
 
 
-import com.epam.entity.Task;
-import com.epam.entity.User;
-import com.epam.service.UserService;
+import com.epam.legacy.entity.User;
+import com.epam.legacy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

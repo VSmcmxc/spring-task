@@ -1,14 +1,14 @@
-package com.epam.service;
+/*
+package com.epam.legacy.service;
 
-import com.epam.entity.Priority;
-import com.epam.entity.Task;
-import com.epam.entity.User;
-import com.epam.repository.TaskRepository;
-import com.epam.repository.UserRepository;
+import com.epam.legacy.entity.Priority;
+import com.epam.legacy.entity.Task;
+import com.epam.legacy.entity.User;
+import com.epam.legacy.repository.TaskRepository;
+import com.epam.legacy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.annotation.Target;
 import java.util.List;
 
 @Service("taskService")
@@ -69,3 +69,4 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.getById(idTask);
     }
 }
+*/

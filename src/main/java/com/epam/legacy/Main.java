@@ -1,18 +1,23 @@
-package com.epam;
-
-import com.epam.configuration.ApplicationConfig;
-import com.epam.controller.TaskController;
-import com.epam.controller.UserController;
-import com.epam.entity.Task;
-import com.epam.entity.User;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+package com.epam.legacy;
 
 public class Main {
 
 
     public static void main(String[] args) {
 
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+
+
+       /* ApplicationContext context = new ClassPathXmlApplicationContext(
+                "applicationContext.xml");
+
+
+        UserService service = (UserServiceImpl) context.getBean("userService");
+        System.out.println(service.getAllUsers());*/
+        // Save or update operation
+
+
+
+      /*  AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(ApplicationConfig.class);
         ctx.refresh();
 
@@ -40,7 +45,7 @@ public class Main {
         taskController.createTask(new Task(12l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(13l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
         taskController.createTask(new Task(14l,"Hi",false, userController.getUserById(1l)), userController.getUserById(1l));
-        //System.out.println(taskController.setTaskPriority(Priority.IMPORTANT, taskController.getTaskById(1l)));
+        //System.out.println(taskController.setTaskPriority(Priority.IMPORTANT, taskController.getTaskById(1l)));*/
 
     }
 }

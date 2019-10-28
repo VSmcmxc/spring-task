@@ -1,22 +1,16 @@
-package com.epam.service;
+package com.epam.legacy.service;
 
 
-import com.epam.entity.Task;
-import com.epam.entity.User;
-import com.epam.service.exception.SubscriptionException;
-import org.aspectj.lang.JoinPoint;
+import com.epam.legacy.entity.User;
+import com.epam.legacy.service.exception.SubscriptionException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Aspect
@@ -24,7 +18,7 @@ import java.util.List;
 public class Checker {
 
 
-    @Pointcut("execution (* com.epam.service.TaskServiceImpl.createTask(..))")
+    @Pointcut("execution (* com.epam.legacy.service.TaskServiceImpl.createTask(..))")
     public void handle() {
     }
 

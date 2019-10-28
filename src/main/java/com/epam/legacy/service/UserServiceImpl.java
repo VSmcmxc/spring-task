@@ -1,29 +1,29 @@
-package com.epam.service;
+package com.epam.legacy.service;
 
-import com.epam.entity.Task;
-import com.epam.entity.User;
-import com.epam.repository.TaskRepository;
-import com.epam.repository.UserRepository;
-import lombok.AllArgsConstructor;
+import com.epam.legacy.entity.User;
+import com.epam.legacy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
-    private TaskRepository taskRepository;
+   // private TaskRepository taskRepository;
     private UserRepository userRepository;
 
     @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    /* @Autowired
     public UserServiceImpl(TaskRepository taskRepository, UserRepository userRepository) {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
-    }
+    }*/
 
     @Override
     public User getUserById(Long id) {

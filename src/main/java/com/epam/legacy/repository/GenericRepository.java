@@ -1,4 +1,4 @@
-package com.epam.repository;
+package com.epam.legacy.repository;
 
 import java.util.List;
 
