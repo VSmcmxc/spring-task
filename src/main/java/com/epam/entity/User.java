@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = { "userId" })
+@EqualsAndHashCode(exclude = {"userId"})
 public class User {
 
     private Long userId;
@@ -14,6 +14,7 @@ public class User {
     private String userEmail;
     private String password;
     private String subscription;
+    private Role role;
 
     public User(Long userId, String userName, String userEmail, String password) {
         this.userId = userId;
@@ -21,5 +22,6 @@ public class User {
         this.userEmail = userEmail;
         this.password = password;
         subscription = "";
+        role = Role.USER;
     }
 }
