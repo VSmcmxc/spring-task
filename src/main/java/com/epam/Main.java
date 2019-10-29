@@ -3,9 +3,6 @@ package com.epam;
 import com.epam.configuration.ApplicationConfig;
 import com.epam.controller.TaskController;
 import com.epam.controller.UserController;
-import com.epam.entity.Task;
-import com.epam.entity.User;
-import com.epam.repository.TaskRepository;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
@@ -21,15 +18,15 @@ public class Main {
 
         UserController userController = ctx.getBean(UserController.class);
         TaskController taskController = ctx.getBean(TaskController.class);
-        System.out.println(userController.getUserById(1l));
-        //userController.buySubscribe(userController.getUserById(1l));
-        userController.signUp(new User("Dfcz", "Dacz@mail.ru", "123"));
-        TaskRepository taskRepository = ctx.getBean(TaskRepository.class);
-        taskRepository.create(new Task("qwe", true, userController.getUserById(1l)));
-        System.out.println(taskRepository.getAll());
+        System.out.println(taskController.findTasksByUser(userController.getUserById(1l)));
 
+        System.out.println("+++++++++++++++++++++++++++++++++++");
 
-        System.out.println(userController.getAllUsers());
+        System.out.println(taskController.markTaskAsComplete(taskController.getTaskById(1l)));
+
+        System.out.println(taskController.findTasksByUser(userController.getUserById(1l)));
+
+        System.out.println("+++++++++++++++++++++++++++++++++++");
 
 
        /* taskController.createTask(new Task(4l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
