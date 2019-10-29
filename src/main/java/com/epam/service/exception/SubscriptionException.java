@@ -1,4 +1,4 @@
-package com.epam.legacy.service.exception;
+package com.epam.service.exception;
 
 public class SubscriptionException extends Exception {
 

@@ -1,7 +1,7 @@
-package com.epam.legacy.repository;
+package com.epam.repository;
 
-import com.epam.legacy.entity.Task;
-import com.epam.legacy.entity.User;
+import com.epam.entity.Task;
+import com.epam.entity.User;
 
 import java.util.List;
 

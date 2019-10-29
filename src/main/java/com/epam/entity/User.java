@@ -1,4 +1,4 @@
-package com.epam.legacy.entity;
+package com.epam.entity;
 
 
 import lombok.*;
@@ -29,5 +29,7 @@ public class User {
         this.userName = userName;
         this.userEmail = userEmail;
         this.password = password;
+        subscription = "";
+        role = Role.USER;
     }
 }

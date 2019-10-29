@@ -25,7 +25,7 @@ create table tasks_list.task
     id_user          int               not null,
     task_description varchar(255)      null,
     task_complete    tinyint default 0 null,
-    task_priority    varchar(255)      not null,
+    task_priority    varchar(255),
     constraint id_task_UNIQUE
         unique (id_task),
     constraint id_user
@@ -38,5 +38,5 @@ create index id_user_idx
 alter table tasks_list.task
     add primary key (id_task);
 
-INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority) VALUES (1, 1, 'To do', 0, 'HIGHT');
-INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority) VALUES (2, 2, 'To do', 1, 'LOW');
+INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority) VALUES (1, 1, 'To do', 0, 'MEDIUM');
+INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority) VALUES (2, 2, 'To do', 1, 'MEDIUM');

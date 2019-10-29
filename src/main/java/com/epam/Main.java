@@ -1,4 +1,12 @@
-package com.epam.legacy;
+package com.epam;
+
+import com.epam.configuration.ApplicationConfig;
+import com.epam.controller.TaskController;
+import com.epam.controller.UserController;
+import com.epam.entity.Task;
+import com.epam.entity.User;
+import com.epam.repository.TaskRepository;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
 
@@ -6,33 +14,25 @@ public class Main {
     public static void main(String[] args) {
 
 
-
-       /* ApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml");
-
-
-        UserService service = (UserServiceImpl) context.getBean("userService");
-        System.out.println(service.getAllUsers());*/
-        // Save or update operation
-
-
-
-      /*  AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(ApplicationConfig.class);
         ctx.refresh();
+
 
         UserController userController = ctx.getBean(UserController.class);
         TaskController taskController = ctx.getBean(TaskController.class);
         System.out.println(userController.getUserById(1l));
         //userController.buySubscribe(userController.getUserById(1l));
+        userController.signUp(new User("Dfcz", "Dacz@mail.ru", "123"));
+        TaskRepository taskRepository = ctx.getBean(TaskRepository.class);
+        taskRepository.create(new Task("qwe", true, userController.getUserById(1l)));
+        System.out.println(taskRepository.getAll());
 
-        userController.signUp(new User(5l, "Dfcz", "Dacz@mail.ru", "123"));
-        System.out.println(userController.getUserById(5l));
 
         System.out.println(userController.getAllUsers());
 
 
-        taskController.createTask(new Task(4l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
+       /* taskController.createTask(new Task(4l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
         System.out.println(taskController.findTasksByUser(userController.getUserById(1l)));
         taskController.createTask(new Task(5l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
         //userController.buySubscribe(userController.getUserById(1l));

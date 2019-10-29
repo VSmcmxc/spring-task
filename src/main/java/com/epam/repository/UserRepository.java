@@ -1,7 +1,7 @@
-package com.epam.legacy.repository;
+package com.epam.repository;
 
 
-import com.epam.legacy.entity.User;
+import com.epam.entity.User;
 
 public interface UserRepository extends GenericRepository<User, Long> {
 

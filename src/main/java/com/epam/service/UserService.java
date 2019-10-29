@@ -1,6 +1,6 @@
-package com.epam.legacy.service;
+package com.epam.service;
 
-import com.epam.legacy.entity.User;
+import com.epam.entity.User;
 
 import java.util.List;
 

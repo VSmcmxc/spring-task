@@ -1,8 +1,8 @@
-package com.epam.legacy.service;
+package com.epam.service;
 
 
-import com.epam.legacy.entity.User;
-import com.epam.legacy.service.exception.SubscriptionException;
+import com.epam.entity.User;
+import com.epam.service.exception.SubscriptionException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -18,7 +18,7 @@ import java.util.List;
 public class Checker {
 
 
-    @Pointcut("execution (* com.epam.legacy.service.TaskServiceImpl.createTask(..))")
+    @Pointcut("execution (* com.epam.service.TaskServiceImpl.createTask(..))")
     public void handle() {
     }
 

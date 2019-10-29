@@ -1,4 +1,4 @@
-package com.epam.legacy.entity;
+package com.epam.entity;
 
 public enum Priority {
     LOW("LOW"), MEDIUM("MEDIUM"), HIGHT("HIGHT"), IMPORTANT("IMPORTANT");

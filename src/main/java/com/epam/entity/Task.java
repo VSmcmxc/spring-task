@@ -1,4 +1,4 @@
-package com.epam.legacy.entity;
+package com.epam.entity;
 
 
 import lombok.Data;
@@ -21,7 +21,13 @@ public class Task {
         this.description = description;
         this.complete = complete;
         this.user = user;
-        priority = Priority.HIGHT;
+        priority = Priority.MEDIUM;
     }
 
+    public Task(String description, Boolean complete, User user) {
+        this.description = description;
+        this.complete = complete;
+        this.user = user;
+        this.priority = Priority.MEDIUM;
+    }
 }

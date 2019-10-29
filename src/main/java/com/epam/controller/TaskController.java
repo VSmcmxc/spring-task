@@ -1,14 +1,15 @@
-/*
-package com.epam.legacy.controller;
+package com.epam.controller;
 
-import com.epam.legacy.entity.Priority;
-import com.epam.legacy.entity.Task;
-import com.epam.legacy.entity.User;
-import com.epam.legacy.service.TaskService;
+import com.epam.entity.Priority;
+import com.epam.entity.Task;
+import com.epam.entity.User;
+import com.epam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+
+
 
 @Controller("taskController")
 public class TaskController {
@@ -48,4 +49,3 @@ public class TaskController {
         return taskService.getById(id);
     }
 }
-*/
