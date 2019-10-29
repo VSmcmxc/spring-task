@@ -7,7 +7,11 @@
     <groupId>com.epam</groupId>
     <artifactId>spring_task</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <modules>
+        <module>spring-main</module>
+        <module>legacy-module</module>
+    </modules>
+    <packaging>pom</packaging>
     <name>spring task Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
