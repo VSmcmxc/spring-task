@@ -1,8 +1,5 @@
 package com.epam;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class RoleChecker {
 
     public boolean checkRole(Object currentRole, Object targetRole) throws IncorrectRoleException {

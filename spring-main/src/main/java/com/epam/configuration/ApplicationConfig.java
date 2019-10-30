@@ -1,10 +1,8 @@
 package com.epam.configuration;
 
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import com.com.RoleChecker;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -15,6 +13,11 @@ import javax.sql.DataSource;
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = { "com.epam.*"})
 public class ApplicationConfig {
+
+    @Bean(name = "roleChecker")
+    public RoleChecker getRoleChecker(){
+        return new RoleChecker();
+    }
 
     @Bean
     public DataSource hsqlDataSource() {

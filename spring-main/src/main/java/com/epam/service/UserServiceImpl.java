@@ -1,12 +1,12 @@
 package com.epam.service;
 
-import com.epam.IncorrectRoleException;
-import com.epam.RoleChecker;
+import com.com.IncorrectRoleException;
+import com.com.RoleChecker;
 import com.epam.entity.Role;
 import com.epam.entity.User;
 import com.epam.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -27,7 +27,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        //this.roleChecker = roleChecker;
     }
 
     @Override

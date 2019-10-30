@@ -3,7 +3,6 @@ package com.epam;
 import com.epam.configuration.ApplicationConfig;
 import com.epam.controller.TaskController;
 import com.epam.controller.UserController;
-import com.epam.entity.Role;
 import com.epam.entity.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
