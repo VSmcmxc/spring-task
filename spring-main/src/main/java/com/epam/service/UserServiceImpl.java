@@ -1,23 +1,33 @@
 package com.epam.service;
 
+import com.epam.IncorrectRoleException;
+import com.epam.RoleChecker;
+import com.epam.entity.Role;
 import com.epam.entity.User;
-import com.epam.repository.TaskRepository;
 import com.epam.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
+    private RoleChecker roleChecker;
 
+    @Resource(name = "roleChecker")
+    public void setRoleChecker(RoleChecker roleChecker) {
+        this.roleChecker = roleChecker;
+    }
 
     @Autowired
-    public UserServiceImpl(TaskRepository taskRepository, UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
+        //this.roleChecker = roleChecker;
     }
 
     @Override
@@ -39,6 +49,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean signIn(User user) {
         if (userRepository.getAll().contains(user)) {
+            try {
+                roleChecker.checkRole(user.getRole(), Role.ADMIN);
+            } catch (IncorrectRoleException e) {
+                e.printStackTrace();
+            }
             return true;
         }
         return false;

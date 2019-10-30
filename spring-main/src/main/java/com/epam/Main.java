@@ -31,12 +31,13 @@ public class Main {
         System.out.println("+++++++++++++++++++++++++++++++++++");
 
         User user = userController.getUserById(3l);
-        try {
+        userController.signIn(user);
+       /* try {
             RoleChecker.checkRole(user.getRole(), Role.ADMIN);
         } catch (IncorrectRoleException e) {
             System.out.println(e.getMessage());
         }
-
+*/
 
        /* taskController.createTask(new Task(4l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));
         System.out.println(taskController.findTasksByUser(userController.getUserById(1l)));

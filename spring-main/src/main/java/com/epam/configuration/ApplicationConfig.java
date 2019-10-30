@@ -16,8 +16,6 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = { "com.epam.*"})
 public class ApplicationConfig {
 
-
-
     @Bean
     public DataSource hsqlDataSource() {
         return new EmbeddedDatabaseBuilder()
@@ -27,11 +25,9 @@ public class ApplicationConfig {
                 .build();
     }
 
-
     @Bean
     public JdbcTemplate hsqlTemplate() {
         return new JdbcTemplate(hsqlDataSource());
     }
-
 
 }
