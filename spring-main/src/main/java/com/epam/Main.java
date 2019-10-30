@@ -3,6 +3,8 @@ package com.epam;
 import com.epam.configuration.ApplicationConfig;
 import com.epam.controller.TaskController;
 import com.epam.controller.UserController;
+import com.epam.entity.Role;
+import com.epam.entity.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
@@ -27,6 +29,13 @@ public class Main {
         System.out.println(taskController.findTasksByUser(userController.getUserById(1l)));
 
         System.out.println("+++++++++++++++++++++++++++++++++++");
+
+        User user = userController.getUserById(3l);
+        try {
+            RoleChecker.checkRole(user.getRole(), Role.ADMIN);
+        } catch (IncorrectRoleException e) {
+            System.out.println(e.getMessage());
+        }
 
 
        /* taskController.createTask(new Task(4l, "Hi", false, userController.getUserById(1l)), userController.getUserById(1l));

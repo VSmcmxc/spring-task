@@ -3,17 +3,14 @@ package com.epam;
 public class RoleChecker {
 
 
-    /**
-     * TODO maven jar plugin
-     * @param role
-     * @return
-     * @throws IncorrectRoleException
-     */
-    public static boolean checkRole(Role role) throws IncorrectRoleException {
-        if (role == Role.ADMIN) {
+
+    public static boolean checkRole(Object currentRole, Object targetRole) throws IncorrectRoleException {
+        if (currentRole.equals(targetRole)) {
             return true;
         } else {
-            throw new IncorrectRoleException();
+            throw new IncorrectRoleException("Role by user not correct");
         }
     }
+
+
 }
