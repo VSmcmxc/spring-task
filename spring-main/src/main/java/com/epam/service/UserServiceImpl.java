@@ -1,7 +1,6 @@
 package com.epam.service;
 
-import com.com.IncorrectRoleException;
-import com.com.RoleChecker;
+import com.com.*;
 import com.epam.entity.Role;
 import com.epam.entity.User;
 import com.epam.repository.UserRepository;
