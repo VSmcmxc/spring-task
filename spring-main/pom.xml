@@ -113,10 +113,10 @@
 
         <dependency>
             <groupId>com.com</groupId>
-            <artifactId>legacy-module</artifactId>
-            <version>4.0.0</version>
+            <artifactId>spring_task</artifactId>
+            <version>1.0</version>
             <scope>system</scope>
-            <systemPath>C:/Users/Aleksei_Semenov/Desktop/Work/springtask.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/spring_task.jar</systemPath>
         </dependency>
 
     </dependencies>

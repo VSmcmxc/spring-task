@@ -5,7 +5,6 @@ import com.epam.entity.Role;
 import com.epam.entity.User;
 import com.epam.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
