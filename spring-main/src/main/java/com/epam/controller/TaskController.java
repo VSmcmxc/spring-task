@@ -6,12 +6,13 @@ import com.epam.entity.User;
 import com.epam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-
-@Controller("taskController")
+@RestController
+/*@RequestMapping(value = "/tasks")*/
 public class TaskController {
 
     private TaskService taskService;
@@ -20,6 +21,26 @@ public class TaskController {
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
+
+    @RequestMapping("/")
+    @ResponseBody
+    public String welcome() {
+        return "Welcome to RestTemplate Example.";
+    }
+
+
+  /*  @RequestMapping("/tasks")
+    @ResponseBody
+    public Task getTask(@PathVariable long id) {
+        return taskService.getById(1l);
+    }
+*/
+  /*  @RequestMapping(method = RequestMethod.PUT)
+    @ResponseBody
+    public Task updateTask(@RequestBody Task task) {
+        return taskService.updateTask(task);
+    }
+
 
     public List<Task> findTasksByUser(User user) {
         return taskService.findTasksByUser(user);
@@ -47,5 +68,5 @@ public class TaskController {
 
     public Task getTaskById(Long id) {
         return taskService.getById(id);
-    }
+    }*/
 }
