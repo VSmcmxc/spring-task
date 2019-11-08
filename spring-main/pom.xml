@@ -4,8 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
-
     <groupId>com.epam</groupId>
     <artifactId>spring-main</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -14,8 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <javaee.version>7.0</javaee.version>
-        <org.springframework.version>4.1.7.RELEASE</org.springframework.version>
+        <org.springframework.version>5.2.0.RELEASE</org.springframework.version>
         <h2.version>1.4.190</h2.version>
         <hsqldb.version>2.3.3</hsqldb.version>
         <derby.version>10.12.1.1</derby.version>
@@ -24,16 +21,16 @@
         <easymock.version>3.3.1</easymock.version>
         <org.projectlombok.version>1.18.10</org.projectlombok.version>
         <javax.servlet>4.0.1</javax.servlet>
-        <tomcat.version>9.0.26</tomcat.version>
+<!--        <tomcat.version>9.0.26</tomcat.version>-->
 
     </properties>
+  <dependencies>
 
-    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-        </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.0.13</version>
+    </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -160,13 +157,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
-            <scope>compile</scope>
         </dependency>
 
 
@@ -177,26 +172,25 @@
 
     <build>
         <finalName>spring-main</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <!--<configuration>
-                    <port>8090</port>
-                    <path>/api</path>
-                </configuration>-->
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-
-        </plugins>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+          <configuration>
+            <source>8</source>
+            <target>8</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <port>8888</port>
+            <path>/</path>
+          </configuration>
+        </plugin>
+      </plugins>
     </build>
 </project>

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service("userService")
@@ -17,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private RoleChecker roleChecker;
 
-    @Resource(name = "roleChecker")
+   // @Resource(name = "roleChecker")
     public void setRoleChecker(RoleChecker roleChecker) {
         this.roleChecker = roleChecker;
     }

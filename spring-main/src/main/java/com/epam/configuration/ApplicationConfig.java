@@ -2,47 +2,29 @@ package com.epam.configuration;
 
 
 import com.com.RoleChecker;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-
-import javax.sql.DataSource;
 
 @Configuration
 @EnableAspectJAutoProxy
 @ComponentScan("com.epam")
-public class ApplicationConfig {
+//@ImportResource("classpath:/spring-config.xml")
+public class ApplicationConfig{
 
-    @Bean(name = "roleChecker")
-    public RoleChecker getRoleChecker() {
-        return new RoleChecker();
-    }
+  @Bean(name = "roleChecker")
+  public RoleChecker getRoleChecker() {
+    return new RoleChecker();
+  }
 
-    @Bean
-    public DataSource hsqlDataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .setScriptEncoding("UTF-8")
-                .addScript("create_tables.sql")
-                .build();
-    }
-
-    @Bean
-    public JdbcTemplate hsqlTemplate() {
-        return new JdbcTemplate(hsqlDataSource());
-    }
-
-   /* @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
-                .build();
-    }*/
+ /* @Bean
+  public ObjectMapper objectMapper() {
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    return mapper;
+  }*/
 
 }
