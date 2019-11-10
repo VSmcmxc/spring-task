@@ -1,16 +1,14 @@
 package com.epam.controller;
 
+import com.epam.entity.Task;
 import com.epam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-/*@RequestMapping(value = "/tasks")*/
+@RequestMapping(value = "/tasks")
 public class TaskController {
 
     private TaskService taskService;
@@ -21,19 +19,17 @@ public class TaskController {
     }
 
     @RequestMapping("/task")
-    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public String welcome() {
         return "Welcome to RestTemplate Example.";
     }
 
 
-  /*  @RequestMapping("/tasks")
+    @RequestMapping("/tasks")
     @ResponseBody
     public Task getTask(@PathVariable long id) {
         return taskService.getById(1l);
     }
-*/
   /*  @RequestMapping(method = RequestMethod.PUT)
     @ResponseBody
     public Task updateTask(@RequestBody Task task) {

@@ -11,18 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebViewConfig implements WebMvcConfigurer {
 
 
-    /*@Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
-
-    @Bean
-    InternalResourceViewResolver getViewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/pages/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }*/
 
 
   @Override

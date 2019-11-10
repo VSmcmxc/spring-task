@@ -1,6 +1,7 @@
 package com.epam.service;
 
-import com.com.*;
+import com.epam.IncorrectRoleException;
+import com.epam.RoleChecker;
 import com.epam.entity.Role;
 import com.epam.entity.User;
 import com.epam.repository.UserRepository;
@@ -16,7 +17,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private RoleChecker roleChecker;
 
-   // @Resource(name = "roleChecker")
+  /*  // @Resource(name = "roleChecker")
     public void setRoleChecker(RoleChecker roleChecker) {
         this.roleChecker = roleChecker;
     }
@@ -24,6 +25,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }*/
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, RoleChecker roleChecker) {
+        this.userRepository = userRepository;
+        this.roleChecker = roleChecker;
     }
 
     @Override

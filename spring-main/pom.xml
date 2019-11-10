@@ -21,7 +21,6 @@
         <easymock.version>3.3.1</easymock.version>
         <org.projectlombok.version>1.18.10</org.projectlombok.version>
         <javax.servlet>4.0.1</javax.servlet>
-<!--        <tomcat.version>9.0.26</tomcat.version>-->
 
     </properties>
   <dependencies>
@@ -133,7 +132,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.com</groupId>
+            <groupId>com.epam</groupId>
             <artifactId>spring_task</artifactId>
             <version>1.0</version>
             <scope>system</scope>
@@ -163,9 +162,15 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
+      <dependency>
+          <groupId>com.epam</groupId>
+          <artifactId>legacy-module</artifactId>
+          <version>1.0-SNAPSHOT</version>
+          <scope>compile</scope>
+      </dependency>
 
 
-    </dependencies>
+  </dependencies>
 
 
 

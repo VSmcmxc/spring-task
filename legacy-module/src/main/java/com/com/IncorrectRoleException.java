@@ -1,4 +1,4 @@
-package com.epam;
+package com.com;
 
 public class IncorrectRoleException extends Exception {
 
