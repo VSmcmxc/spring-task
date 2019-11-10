@@ -1,5 +1,6 @@
 package com.epam.service;
 
+import com.epam.dto.UserDTO;
 import com.epam.entity.User;
 
 import java.util.List;
@@ -13,7 +14,9 @@ public interface UserService {
 
     User getUserById(Long id);
 
-    List<User> getAllUsers();
+    List<UserDTO> getAllUsers();
 
     boolean buySubscribe(User user);
+
+    public UserDTO getUserDTOById(Long id);
 }

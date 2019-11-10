@@ -9,6 +9,8 @@ import java.util.List;
 public interface TaskService {
     List<Task> findTasksByUser(User user);
 
+    List<Task> findTasksByUserId(Long id);
+
     Task createTask(Task task, User user);
 
     Long deleteTask(Task task);
@@ -22,4 +24,6 @@ public interface TaskService {
     Task getById(Long idTask);
 
     Task setTaskPriority(Priority priority, Task task);
+
+    public Long deleteTaskById(Long id);
 }

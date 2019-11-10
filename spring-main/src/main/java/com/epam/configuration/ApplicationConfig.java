@@ -9,13 +9,14 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan("com.epam")
-public class ApplicationConfig{
+@ComponentScan(basePackages = { "com.epam.*"})
+public class ApplicationConfig {
 
-  @Bean(name = "roleChecker")
-  public RoleChecker getRoleChecker() {
-    return new RoleChecker();
-  }
+    @Bean(name = "roleChecker")
+    public RoleChecker getRoleChecker() {
+        return new RoleChecker();
+    }
+
 
  /* @Bean
   public ObjectMapper objectMapper() {

@@ -14,10 +14,12 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
 
     private TaskRepository taskRepository;
+    private UserRepository userRepository;
 
     @Autowired
     public TaskServiceImpl(TaskRepository taskRepository, UserRepository userRepository) {
         this.taskRepository = taskRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -33,6 +35,12 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public List<Task> findTasksByUserId(Long id) {
+        List<Task> tasks = taskRepository.findAllTasksByUser(userRepository.getById(id));
+        return tasks;
+    }
+
+    @Override
     public Task createTask(Task task, User user) {
         task.setUser(user);
         return taskRepository.create(task);
@@ -42,6 +50,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Long deleteTask(Task task) {
         return taskRepository.deleteById(task.getTaskId());
+    }
+
+    @Override
+    public Long deleteTaskById(Long id) {
+        return taskRepository.deleteById(id);
     }
 
     @Override

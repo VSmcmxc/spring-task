@@ -1,10 +1,13 @@
 package com.epam.controller;
 
 import com.epam.entity.Task;
+import com.epam.entity.User;
 import com.epam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -18,50 +21,48 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @RequestMapping("/task")
+
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String welcome() {
-        return "Welcome to RestTemplate Example.";
-    }
-
-
-    @RequestMapping("/tasks")
-    @ResponseBody
     public Task getTask(@PathVariable long id) {
-        return taskService.getById(1l);
-    }
-  /*  @RequestMapping(method = RequestMethod.PUT)
-    @ResponseBody
-    public Task updateTask(@RequestBody Task task) {
-        return taskService.updateTask(task);
+        return taskService.getById(id);
     }
 
-
-    public List<Task> findTasksByUser(User user) {
-        return taskService.findTasksByUser(user);
+    @GetMapping("/users/{idUser}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Task> getTaskByUser(@PathVariable Long idUser) {
+        return taskService.findTasksByUserId(idUser);
     }
 
-    public Task createTask(Task task, User user) {
+
+    @PostMapping("/")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Task createTask(@RequestBody Task task, @RequestBody User user) {
         return taskService.createTask(task, user);
     }
 
-    public Long deleteTask(Task task) {
-        return taskService.deleteTask(task);
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public Long delete(@PathVariable Long id) {
+        return taskService.deleteTaskById(id);
     }
 
-    public boolean markTaskAsComplete(Task task) {
-        return taskService.markTaskAsCompleted(task);
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/{id}")
+    public Task createTask(@PathVariable Long id) {
+        return taskService.updateTask(taskService.getById(id));
     }
 
-    public boolean markTaskAsUncompleted(Task task) {
-        return taskService.markTaskAsUncompleted(task);
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("markAsCompleted/{id}")
+    public boolean markTaskAsComplete(@PathVariable Long id) {
+        return taskService.markTaskAsCompleted(taskService.getById(id));
+    }
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("markAsUncompleted/{id}")
+    public boolean markTaskAsUncompleted(@PathVariable Long id) {
+        return taskService.markTaskAsUncompleted(taskService.getById(id));
     }
 
-    public Task setTaskPriority(Priority priority, Task task) {
-        return taskService.setTaskPriority(priority, task);
-    }
 
-    public Task getTaskById(Long id) {
-        return taskService.getById(id);
-    }*/
 }

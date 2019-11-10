@@ -4,9 +4,6 @@ import com.epam.configuration.ApplicationConfig;
 import com.epam.configuration.DBConfig;
 import com.epam.controller.TaskController;
 import com.epam.controller.UserController;
-import com.epam.entity.Role;
-import com.epam.entity.Task;
-import com.epam.entity.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {

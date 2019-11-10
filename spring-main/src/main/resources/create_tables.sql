@@ -14,9 +14,12 @@ create table tasks_list.user
 alter table tasks_list.user
     add primary key (id_user);
 
-INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription) VALUES (1, 'Vadim', 'Vadim@email.com', 'password', 'ADMIN', null);
-INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription) VALUES (2, 'Aleksey', 'Aleksey@email.com', 'password', 'ADMIN', null);
-INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription) VALUES (3, 'User', 'User@email.com', 'password', 'USER', null);
+INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription)
+VALUES (1, 'Vadim', 'Vadim@email.com', 'password', 'ADMIN', null);
+INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription)
+VALUES (2, 'Aleksey', 'Aleksey@email.com', 'password', 'ADMIN', null);
+INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription)
+VALUES (3, 'User', 'User@email.com', 'password', 'USER', null);
 
 
 create table tasks_list.task
@@ -38,5 +41,7 @@ create index id_user_idx
 alter table tasks_list.task
     add primary key (id_task);
 
-INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority) VALUES (1, 1, 'To do', 0, 'MEDIUM');
-INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority) VALUES (2, 2, 'To do', 1, 'MEDIUM');
+INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority)
+VALUES (1, 1, 'To do', 0, 'MEDIUM');
+INSERT INTO tasks_list.task (id_task, id_user, task_description, task_complete, task_priority)
+VALUES (2, 2, 'To do', 1, 'MEDIUM');
