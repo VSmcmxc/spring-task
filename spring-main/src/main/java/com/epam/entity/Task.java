@@ -2,6 +2,7 @@ package com.epam.entity;
 
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @Builder
@@ -15,6 +16,7 @@ public class Task {
     private Boolean complete;
     private User user;
     private Priority priority;
+    private MultipartFile file;
 
     public Task(Long taskId, String description, Boolean complete, User user) {
         this.taskId = taskId;

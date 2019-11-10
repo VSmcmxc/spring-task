@@ -19,4 +19,5 @@ public interface UserService {
     boolean buySubscribe(User user);
 
     public UserDTO getUserDTOById(Long id);
+
 }

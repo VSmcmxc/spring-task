@@ -6,6 +6,7 @@ import com.epam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -58,10 +59,16 @@ public class TaskController {
     public boolean markTaskAsComplete(@PathVariable Long id) {
         return taskService.markTaskAsCompleted(taskService.getById(id));
     }
+
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("markAsUncompleted/{id}")
     public boolean markTaskAsUncompleted(@PathVariable Long id) {
         return taskService.markTaskAsUncompleted(taskService.getById(id));
+    }
+
+    @PostMapping("/upload/{id}")
+    public boolean upload(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
+        return taskService.upload(file, id);
     }
 
 

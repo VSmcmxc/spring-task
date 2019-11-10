@@ -7,6 +7,8 @@ import com.epam.repository.TaskRepository;
 import com.epam.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -77,5 +79,35 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task getById(Long idTask) {
         return taskRepository.getById(idTask);
+    }
+
+
+    @Override
+    public boolean checkSubscribeByUserId(Long id) {
+        if (userRepository.getById(id).getSubscription() == DigestUtils.md5DigestAsHex(("secret".getBytes()))) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * Just put file in task object
+     *
+     * @param file
+     * @param id
+     * @return
+     */
+    @Override
+    public Boolean upload(MultipartFile file, Long id) {
+        Task task = taskRepository.getById(id);
+        if (checkSubscribeByUserId(id)) {
+            task.setFile(file);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

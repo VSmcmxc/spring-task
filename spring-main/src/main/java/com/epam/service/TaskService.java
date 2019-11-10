@@ -3,6 +3,7 @@ package com.epam.service;
 import com.epam.entity.Priority;
 import com.epam.entity.Task;
 import com.epam.entity.User;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -26,4 +27,8 @@ public interface TaskService {
     Task setTaskPriority(Priority priority, Task task);
 
     public Long deleteTaskById(Long id);
+
+    public Boolean upload(MultipartFile file, Long id);
+
+    public boolean checkSubscribeByUserId(Long id);
 }
