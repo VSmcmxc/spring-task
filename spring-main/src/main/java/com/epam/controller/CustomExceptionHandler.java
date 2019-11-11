@@ -1,6 +1,6 @@
 package com.epam.controller;
 
-import com.com.IncorrectRoleException;
+import com.epam.IncorrectRoleException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
