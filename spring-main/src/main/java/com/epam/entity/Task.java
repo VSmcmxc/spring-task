@@ -32,4 +32,12 @@ public class Task {
         this.user = user;
         this.priority = Priority.MEDIUM;
     }
+
+    public Task(Long taskId, String description, Boolean complete, User user, Priority priority) {
+        this.taskId = taskId;
+        this.description = description;
+        this.complete = complete;
+        this.user = user;
+        this.priority = priority;
+    }
 }
