@@ -39,5 +39,6 @@ public class Task {
         this.complete = complete;
         this.user = user;
         this.priority = priority;
+        this.priority = Priority.MEDIUM;
     }
 }

@@ -22,7 +22,7 @@ public class User {
         this.userName = userName;
         this.userEmail = userEmail;
         this.password = password;
-        subscription = "";
+        subscription = "1";
         role = Role.USER;
     }
 
@@ -30,7 +30,9 @@ public class User {
         this.userName = userName;
         this.userEmail = userEmail;
         this.password = password;
-        subscription = "";
+        subscription = "1";
         role = Role.USER;
     }
+
+
 }

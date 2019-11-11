@@ -15,11 +15,11 @@ alter table tasks_list.user
     add primary key (id_user);
 
 INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription)
-VALUES (1, 'Vadim', 'Vadim@email.com', 'password', 'ADMIN', null);
+VALUES (1, 'Vadim', 'Vadim@email.com', 'password', 'ADMIN', 'test');
 INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription)
-VALUES (2, 'Aleksey', 'Aleksey@email.com', 'password', 'ADMIN', null);
+VALUES (2, 'Aleksey', 'Aleksey@email.com', 'password', 'ADMIN', 'test');
 INSERT INTO tasks_list.user (id_user, user_name, user_email, user_password, role, user_subscription)
-VALUES (3, 'User', 'User@email.com', 'password', 'USER', null);
+VALUES (3, 'User', 'User@email.com', 'password', 'USER', 'test');
 
 
 create table tasks_list.task
