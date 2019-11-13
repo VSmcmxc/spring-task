@@ -64,13 +64,13 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Boolean markTaskAsCompleted(Task task) {
-        taskRepository.markTaskAsCompleted(task);
+        taskRepository.markTaskAsCompleted(task.getTaskId());
         return true;
     }
 
     @Override
     public Boolean markTaskAsUncompleted(Task task) {
-        taskRepository.markTaskAsUncompleted(task);
+       // taskRepository.markTaskAsUncompleted(task);
         return true;
     }
 
@@ -106,7 +106,7 @@ public class TaskServiceImpl implements TaskService {
     public Boolean upload(MultipartFile file, Long id) {
         Task task = taskRepository.getOne(id);
         if (checkSubscribeByUserId(id)) {
-            task.setFile(file);
+            task.setFileName(file.getName());
             return true;
         } else {
             return false;

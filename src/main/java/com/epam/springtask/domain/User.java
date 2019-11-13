@@ -1,12 +1,14 @@
 package com.epam.springtask.domain;
 
 
+import com.epam.springtask.repository.PriorityJpaConverter;
+import com.epam.springtask.repository.RoleJpaConverter;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -14,17 +16,26 @@ import javax.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(exclude = {"userId"})
+@Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
+    @Column
     private String userName;
+    @Column
     private String userEmail;
+    @Column
     private String password;
+    @Column
     private String subscription;
+
+    @Convert(converter = RoleJpaConverter.class)
     private Role role;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Task> tasks = new ArrayList<>();
 
     public User(String userName, String userEmail, String password, String subscription, Role role) {
         this.userName = userName;

@@ -1,5 +1,6 @@
 package com.epam.springtask;
 
+import com.epam.RoleChecker;
 import com.epam.springtask.domain.Role;
 import com.epam.springtask.domain.User;
 import com.epam.springtask.repository.UserRepository;
@@ -22,6 +23,11 @@ public class SpringTaskApplication {
     }
 
     @Bean
+    public RoleChecker roleChecker() {
+        return new RoleChecker();
+    }
+
+   /* @Bean
     public CommandLineRunner demo(UserRepository repository) {
         return (args) -> {
             // save a few customers
@@ -51,5 +57,5 @@ public class SpringTaskApplication {
 
             log.info("");
         };
-    }
+    }*/
 }

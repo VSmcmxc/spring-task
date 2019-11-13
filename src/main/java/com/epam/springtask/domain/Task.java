@@ -1,30 +1,35 @@
 package com.epam.springtask.domain;
 
 
+import com.epam.springtask.repository.PriorityJpaConverter;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
-@Data
+@Table(name = "task")
 @Builder
 @NoArgsConstructor
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = {"taskId"})
 public class Task {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long taskId;
+    @Column
     private String description;
+    @Column
     private Boolean complete;
-    private User user;
+    @Convert(converter = PriorityJpaConverter.class)
     private Priority priority;
-    private MultipartFile file;
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+
+    @Column
+    private String fileName;
+
 
     public Task(Long taskId, String description, Boolean complete, User user) {
         this.taskId = taskId;
@@ -32,6 +37,7 @@ public class Task {
         this.complete = complete;
         this.user = user;
         priority = Priority.MEDIUM;
+        fileName = "";
     }
 
     public Task(String description, Boolean complete, User user) {
@@ -39,6 +45,7 @@ public class Task {
         this.complete = complete;
         this.user = user;
         this.priority = Priority.MEDIUM;
+        fileName = "";
     }
 
     public Task(Long taskId, String description, Boolean complete, User user, Priority priority) {
@@ -48,5 +55,6 @@ public class Task {
         this.user = user;
         this.priority = priority;
         this.priority = Priority.MEDIUM;
+        fileName = "";
     }
 }
