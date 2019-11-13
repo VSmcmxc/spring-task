@@ -3,21 +3,22 @@ package com.epam.springtask.service;
 
 import com.epam.springtask.domain.User;
 import com.epam.springtask.dto.UserDTO;
+import com.epam.springtask.dto.UserSignInDTO;
 
 import java.util.List;
 
 
 public interface UserService {
 
-    Boolean signUp(User user);
+    Boolean signUp(UserSignInDTO user);
 
-    Boolean signIn(User user);
+    Boolean signIn(UserSignInDTO user);
 
     User getUserById(Long id);
 
     List<UserDTO> getAllUsers();
 
-    boolean buySubscribe(User user);
+    boolean buySubscribe(Long id);
 
     public UserDTO getUserDTOById(Long id);
 

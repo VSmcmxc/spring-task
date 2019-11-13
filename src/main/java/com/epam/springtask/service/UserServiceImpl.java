@@ -6,6 +6,7 @@ import com.epam.RoleChecker;
 import com.epam.springtask.domain.Role;
 import com.epam.springtask.domain.User;
 import com.epam.springtask.dto.UserDTO;
+import com.epam.springtask.dto.UserSignInDTO;
 import com.epam.springtask.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,8 +47,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean signUp(User user) {
+    public Boolean signUp(UserSignInDTO userDTO) {
         try {
+            User user = User.builder()
+                    .userName(userDTO.getUserName())
+                    .userEmail(userDTO.getUserEmail())
+                    .password(userDTO.getPassword())
+                    .build();
             userRepository.save(user);
             return true;
         } catch (Exception e) {
@@ -57,7 +63,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean signIn(User user) {
+    public Boolean signIn(UserSignInDTO userDTO) {
+        User user = User.builder()
+                .userName(userDTO.getUserName())
+                .userEmail(userDTO.getUserEmail())
+                .password(userDTO.getPassword())
+                .build();
         if (userRepository.findAll().contains(user)) {
             try {
                 roleChecker.checkRole(user.getRole(), Role.ADMIN);
@@ -87,9 +98,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean buySubscribe(User user) {
+    public boolean buySubscribe(Long id) {
         try {
-
+            User user = userRepository.getOne(id);
             String subscription = DigestUtils.md5DigestAsHex(("secret".getBytes()));
             user.setSubscription(subscription);
             userRepository.save(user);

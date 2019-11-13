@@ -16,15 +16,15 @@ public interface TaskService {
 
     Long deleteTask(Long id);
 
-    Boolean markTaskAsCompleted(Task task);
+    Boolean markTaskAsCompleted(Long id);
 
-    Boolean markTaskAsUncompleted(Task task);
+    Boolean markTaskAsUncompleted(Long id);
 
     Task updateTask(Task task);
 
     Task getById(Long idTask);
 
-    Task setTaskPriority(Priority priority, Task task);
+    Task setTaskPriority(Priority priority, Long id);
 
     public Long deleteTaskById(Long id);
 

@@ -27,6 +27,8 @@ public class SpringTaskApplication {
         return new RoleChecker();
     }
 
+
+
    /* @Bean
     public CommandLineRunner demo(UserRepository repository) {
         return (args) -> {

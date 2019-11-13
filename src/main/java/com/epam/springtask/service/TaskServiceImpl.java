@@ -26,10 +26,12 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task setTaskPriority(Priority priority, Task task) {
+    public Task setTaskPriority(Priority priority, Long id) {
+        Task task = taskRepository.getOne(id);
         task.setPriority(priority);
         return taskRepository.save(task);
     }
+
 
     @Override
     public List<Task> findTasksByUser(User user) {
@@ -63,14 +65,14 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Boolean markTaskAsCompleted(Task task) {
-        taskRepository.markTaskAsCompleted(task.getTaskId());
+    public Boolean markTaskAsCompleted(Long id) {
+        taskRepository.markTaskAsCompleted(id);
         return true;
     }
 
     @Override
-    public Boolean markTaskAsUncompleted(Task task) {
-       // taskRepository.markTaskAsUncompleted(task);
+    public Boolean markTaskAsUncompleted(Long id) {
+        taskRepository.markTaskAsUncompleted(id);
         return true;
     }
 

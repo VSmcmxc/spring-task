@@ -15,12 +15,13 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     List<Task> findAllTasksByUser(User user);
 
-    //Boolean markTaskAsCompleted(Task task);
 
     @Modifying
     @Query("update Task t set t.complete = true where t.id = ?1")
     Boolean markTaskAsCompleted(Long id);
 
-    /*Boolean markTaskAsUncompleted(Task task);*/
+    @Modifying
+    @Query("update Task t set t.complete = false where t.id = ?1")
+    Boolean markTaskAsUncompleted(Long id);
 
 }
