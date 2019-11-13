@@ -5,7 +5,6 @@ import com.epam.configuration.DBConfig;
 import com.epam.entity.Priority;
 import com.epam.entity.Task;
 import com.epam.entity.User;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +13,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -49,10 +49,11 @@ public class TaskServiceImplTest {
         assertNotNull(taskService.findTasksByUserId(1l));
     }
 
-    @Test
+ @Test
     public void createTask() {
         assertNotNull(taskService.createTask(new Task("To do", true, user), user));
     }
+
 
 
     @Test
