@@ -113,6 +113,10 @@ public class TaskServiceImpl implements TaskService {
         } else {
             return false;
         }
+    }
 
+    @Override
+    public List<Task> findAllTask() {
+        return taskRepository.findAll(Sort sort);
     }
 }

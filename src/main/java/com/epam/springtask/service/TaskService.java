@@ -31,4 +31,6 @@ public interface TaskService {
     public Boolean upload(MultipartFile file, Long id);
 
     public boolean checkSubscribeByUserId(Long id);
+
+    List<Task> findAllTask();
 }

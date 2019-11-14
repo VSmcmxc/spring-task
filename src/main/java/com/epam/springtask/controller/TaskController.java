@@ -3,6 +3,7 @@ package com.epam.springtask.controller;
 
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
+import com.epam.springtask.dto.UserDTO;
 import com.epam.springtask.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -71,6 +72,13 @@ public class TaskController {
     public boolean upload(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
         return taskService.upload(file, id);
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/")
+    public List<Task> getAllUsers() {
+        return taskService.();
+    }
+
 
 
 }
