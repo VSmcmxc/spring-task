@@ -66,5 +66,15 @@ public class User {
         role = Role.USER;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", password='" + password + '\'' +
+                ", subscription='" + subscription + '\'' +
+                ", role=" + role +
+                '}';
+    }
 }

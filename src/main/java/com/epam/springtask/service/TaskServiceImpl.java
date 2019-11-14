@@ -36,7 +36,6 @@ public class TaskServiceImpl implements TaskService {
         task.setPriority(priority);
         taskRepository.save(task);
         TaskDTO taskDTO = TaskDTO.builder()
-                .taskId(task.getTaskId())
                 .complete(task.getComplete())
                 .description(task.getDescription())
                 .priority(task.getPriority())
@@ -71,7 +70,6 @@ public class TaskServiceImpl implements TaskService {
         List<TaskDTO> taskDTOS = new ArrayList<>();
         for (Task task : tasks) {
             TaskDTO taskDTO = TaskDTO.builder()
-                    .taskId(task.getTaskId())
                     .complete(task.getComplete())
                     .description(task.getDescription())
                     .priority(task.getPriority())
@@ -84,15 +82,8 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public TaskDTO createTask(TaskDTO taskDTO, UserDTO userDTO) {
-        User user = User.builder()
-                .userId(userDTO.getUserId())
-                .userName(userDTO.getUserName())
-                .userEmail(userDTO.getUserEmail())
-                .build();
+    public TaskDTO createTask(TaskDTO taskDTO) {
 
-
-        taskDTO.setId_user(user.getUserId());
         Task task = Task.builder()
                 .complete(taskDTO.getComplete())
                 .description(taskDTO.getDescription())
@@ -101,9 +92,8 @@ public class TaskServiceImpl implements TaskService {
                 .build();
 
         taskRepository.save(task);
-
+        System.out.println("taskDTO");
         return taskDTO;
-
     }
 
     @Override
@@ -134,7 +124,6 @@ public class TaskServiceImpl implements TaskService {
     public TaskDTO updateTask(Task task) {
         taskRepository.save(task);
         TaskDTO taskDTO = TaskDTO.builder()
-                .taskId(task.getTaskId())
                 .complete(task.getComplete())
                 .description(task.getDescription())
                 .priority(task.getPriority())
@@ -152,7 +141,6 @@ public class TaskServiceImpl implements TaskService {
     public TaskDTO getById(Long idTask) {
         Task task = taskRepository.getOne(idTask);
         TaskDTO taskDTO = TaskDTO.builder()
-                .taskId(task.getTaskId())
                 .complete(task.getComplete())
                 .description(task.getDescription())
                 .priority(task.getPriority())
@@ -196,7 +184,6 @@ public class TaskServiceImpl implements TaskService {
         List<TaskDTO> taskDTOS = new ArrayList<>();
         for (Task task : tasks) {
             TaskDTO taskDTO = TaskDTO.builder()
-                    .taskId(task.getTaskId())
                     .complete(task.getComplete())
                     .description(task.getDescription())
                     .priority(task.getPriority())

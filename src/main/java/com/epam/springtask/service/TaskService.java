@@ -14,7 +14,7 @@ public interface TaskService {
 
     List<TaskDTO> findTasksByUserId(Long id);
 
-    TaskDTO createTask(TaskDTO task, UserDTO user);
+    TaskDTO createTask(TaskDTO task);
 
     Long deleteTask(Long id);
 

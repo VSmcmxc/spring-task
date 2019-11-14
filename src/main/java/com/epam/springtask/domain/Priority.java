@@ -2,7 +2,7 @@ package com.epam.springtask.domain;
 
 public enum Priority {
     IMPORTANT("IMPORTANT"),
-    HIGHT("HIGHT"),
+    HIGH("HIGH"),
     MEDIUM("MEDIUM"),
     LOW("LOW");
 

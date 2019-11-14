@@ -2,10 +2,11 @@ package com.epam.springtask.domain;
 
 
 import com.epam.springtask.repository.PriorityJpaConverter;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -60,5 +61,16 @@ public class Task {
         this.priority = priority;
         this.priority = Priority.MEDIUM;
         fileName = "";
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskId=" + taskId +
+                ", description='" + description + '\'' +
+                ", complete=" + complete +
+                ", priority=" + priority +
+                ", fileName='" + fileName + '\'' +
+                '}';
     }
 }
