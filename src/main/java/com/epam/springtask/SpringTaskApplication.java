@@ -1,6 +1,6 @@
 package com.epam.springtask;
 
-import com.epam.RoleChecker;
+
 import com.epam.springtask.domain.Role;
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;

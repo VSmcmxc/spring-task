@@ -4,7 +4,6 @@ package com.epam.springtask.controller;
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
 import com.epam.springtask.dto.TaskDTO;
-import com.epam.springtask.dto.UserDTO;
 import com.epam.springtask.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
