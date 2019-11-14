@@ -4,16 +4,17 @@ import com.epam.springtask.domain.Priority;
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
 import com.epam.springtask.dto.TaskDTO;
+import com.epam.springtask.dto.UserDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface TaskService {
-    List<TaskDTO> findTasksByUser(User user);
+    // List<TaskDTO> findTasksByUser(User user);
 
     List<TaskDTO> findTasksByUserId(Long id);
 
-    TaskDTO createTask(Task task, User user);
+    TaskDTO createTask(TaskDTO task, UserDTO user);
 
     Long deleteTask(Long id);
 

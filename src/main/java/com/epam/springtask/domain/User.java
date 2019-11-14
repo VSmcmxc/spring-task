@@ -2,6 +2,9 @@ package com.epam.springtask.domain;
 
 
 import com.epam.springtask.repository.RoleJpaConverter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,7 +38,8 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Task> tasks = new ArrayList<>();
+   // @JsonBackReference
+    private List<Task> tasks;
 
     public User(String userName, String userEmail, String password, String subscription, Role role) {
         this.userName = userName;

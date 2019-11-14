@@ -5,6 +5,7 @@ import com.epam.springtask.domain.Priority;
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
 import com.epam.springtask.dto.TaskDTO;
+import com.epam.springtask.dto.UserDTO;
 import com.epam.springtask.repository.TaskRepository;
 import com.epam.springtask.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +40,13 @@ public class TaskServiceImpl implements TaskService {
                 .complete(task.getComplete())
                 .description(task.getDescription())
                 .priority(task.getPriority())
-                .user(task.getUser())
+                .id_user(task.getUser().getUserId())
                 .build();
         return taskDTO;
     }
 
 
-    @Override
+  /*  @Override
     public List<TaskDTO> findTasksByUser(User user) {
         List<Task> tasks = taskRepository.findAllTasksByUser(user);
         List<TaskDTO> taskDTOS = new ArrayList<>();
@@ -61,11 +62,12 @@ public class TaskServiceImpl implements TaskService {
         }
 
         return taskDTOS;
-    }
+    }*/
 
     @Override
     public List<TaskDTO> findTasksByUserId(Long id) {
-        List<Task> tasks = taskRepository.findAllTasksByUser(userRepository.getOne(id));
+        User user = userRepository.getOne(id);
+        List<Task> tasks = taskRepository.findAllTasksByUser(user);
         List<TaskDTO> taskDTOS = new ArrayList<>();
         for (Task task : tasks) {
             TaskDTO taskDTO = TaskDTO.builder()
@@ -73,7 +75,7 @@ public class TaskServiceImpl implements TaskService {
                     .complete(task.getComplete())
                     .description(task.getDescription())
                     .priority(task.getPriority())
-                    .user(task.getUser())
+                    .id_user(task.getUser().getUserId())
                     .build();
             taskDTOS.add(taskDTO);
         }
@@ -82,16 +84,24 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public TaskDTO createTask(Task task, User user) {
-        task.setUser(user);
-        taskRepository.save(task);
-        TaskDTO taskDTO = TaskDTO.builder()
-                .taskId(task.getTaskId())
-                .complete(task.getComplete())
-                .description(task.getDescription())
-                .priority(task.getPriority())
-                .user(task.getUser())
+    public TaskDTO createTask(TaskDTO taskDTO, UserDTO userDTO) {
+        User user = User.builder()
+                .userId(userDTO.getUserId())
+                .userName(userDTO.getUserName())
+                .userEmail(userDTO.getUserEmail())
                 .build();
+
+
+        taskDTO.setId_user(user.getUserId());
+        Task task = Task.builder()
+                .complete(taskDTO.getComplete())
+                .description(taskDTO.getDescription())
+                .priority(taskDTO.getPriority())
+                .user(userRepository.getOne(taskDTO.getId_user()))
+                .build();
+
+        taskRepository.save(task);
+
         return taskDTO;
 
     }
@@ -128,7 +138,7 @@ public class TaskServiceImpl implements TaskService {
                 .complete(task.getComplete())
                 .description(task.getDescription())
                 .priority(task.getPriority())
-                .user(task.getUser())
+                .id_user(task.getUser().getUserId())
                 .build();
         return taskDTO;
     }
@@ -146,7 +156,7 @@ public class TaskServiceImpl implements TaskService {
                 .complete(task.getComplete())
                 .description(task.getDescription())
                 .priority(task.getPriority())
-                .user(task.getUser())
+                .id_user(task.getUser().getUserId())
                 .build();
         return taskDTO;
     }
@@ -190,7 +200,7 @@ public class TaskServiceImpl implements TaskService {
                     .complete(task.getComplete())
                     .description(task.getDescription())
                     .priority(task.getPriority())
-                    .user(task.getUser())
+                    .id_user(task.getUser().getUserId())
                     .build();
             taskDTOS.add(taskDTO);
         }

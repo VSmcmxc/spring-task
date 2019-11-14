@@ -2,6 +2,9 @@ package com.epam.springtask.domain;
 
 
 import com.epam.springtask.repository.PriorityJpaConverter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +27,8 @@ public class Task {
     private Priority priority;
     @ManyToOne
     @JoinColumn(name = "id_user")
+    //@JsonManagedReference
+    @JsonIgnore
     private User user;
 
     @Column

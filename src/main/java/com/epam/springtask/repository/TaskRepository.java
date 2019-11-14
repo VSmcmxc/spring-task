@@ -17,7 +17,10 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
+
+    @Query("select t from Task t where t.user=?1")
     List<Task> findAllTasksByUser(User user);
+
 
 
     @Modifying

@@ -16,6 +16,6 @@ public class TaskDTO {
     private Long taskId;
     private String description;
     private Boolean complete;
-    private User user;
+    private Long id_user;
     private Priority priority;
 }
