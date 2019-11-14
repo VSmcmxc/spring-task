@@ -1,8 +1,8 @@
 package com.epam.springtask.service;
 
 
-import com.epam.IncorrectRoleException;
-import com.epam.RoleChecker;
+import com.epam.springtask.IncorrectRoleException;
+import com.epam.springtask.RoleChecker;
 import com.epam.springtask.domain.Role;
 import com.epam.springtask.domain.User;
 import com.epam.springtask.dto.UserDTO;
