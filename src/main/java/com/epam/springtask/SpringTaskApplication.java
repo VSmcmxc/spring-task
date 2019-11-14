@@ -2,10 +2,13 @@ package com.epam.springtask;
 
 import com.epam.RoleChecker;
 import com.epam.springtask.domain.Role;
+import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
+import com.epam.springtask.repository.TaskRepository;
 import com.epam.springtask.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +21,9 @@ public class SpringTaskApplication {
 
     private static final Logger log = LoggerFactory.getLogger(SpringTaskApplication.class);
 
+    @Autowired
+    private UserRepository userRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringTaskApplication.class, args);
     }
@@ -28,30 +34,27 @@ public class SpringTaskApplication {
     }
 
 
-
     @Bean
-    public CommandLineRunner demo(UserRepository repository) {
+    public CommandLineRunner users(UserRepository repository) {
         return (args) -> {
             // save a few customers
             repository.save(new User("Vadim", "Vadim@mail.com", "password", "1", Role.ADMIN));
-			repository.save(new User("Aleksey", "Aleksey@mail.com", "password", "1", Role.ADMIN));
-			repository.save(new User("Maria", "Maria@mail.com", "password", "1", Role.USER));
+            repository.save(new User("Aleksey", "Aleksey@mail.com", "password", "1", Role.ADMIN));
+            repository.save(new User("Maria", "Maria@mail.com", "password", "1", Role.USER));
 
 
+        };
+    }
 
-         /*   // fetch an individual customer by ID
-            Optional<User> user = repository.findById(1L);
-            log.info("User found with findById(1L):");
-            log.info("--------------------------------");
-            log.info(user.toString());
-            log.info("");
-
-            // fetch customers by last name
-            log.info("Customer found with findByLastName('Bauer'):");
-            log.info("--------------------------------------------");
+    @Bean
+    public CommandLineRunner tasks(TaskRepository repository) {
+        return (args) -> {
+            // save a few customers
+            repository.save(new Task("1", false, userRepository.getOne(1l)));
+            repository.save(new Task("1", false, userRepository.getOne(2l)));
+            repository.save(new Task("1", true, userRepository.getOne(1l)));
 
 
-            log.info("");*/
         };
     }
 }
