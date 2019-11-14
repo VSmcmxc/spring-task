@@ -4,6 +4,7 @@ package com.epam.springtask.service;
 import com.epam.springtask.domain.Priority;
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
+import com.epam.springtask.dto.TaskDTO;
 import com.epam.springtask.repository.TaskRepository;
 import com.epam.springtask.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service("taskService")
@@ -26,29 +30,69 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task setTaskPriority(Priority priority, Long id) {
+    public TaskDTO setTaskPriority(Priority priority, Long id) {
         Task task = taskRepository.getOne(id);
         task.setPriority(priority);
-        return taskRepository.save(task);
+        taskRepository.save(task);
+        TaskDTO taskDTO = TaskDTO.builder()
+                .taskId(task.getTaskId())
+                .complete(task.getComplete())
+                .description(task.getDescription())
+                .priority(task.getPriority())
+                .user(task.getUser())
+                .build();
+        return taskDTO;
     }
 
 
     @Override
-    public List<Task> findTasksByUser(User user) {
+    public List<TaskDTO> findTasksByUser(User user) {
         List<Task> tasks = taskRepository.findAllTasksByUser(user);
-        return tasks;
+        List<TaskDTO> taskDTOS = new ArrayList<>();
+        for (Task task : tasks) {
+            TaskDTO taskDTO = TaskDTO.builder()
+                    .taskId(task.getTaskId())
+                    .complete(task.getComplete())
+                    .description(task.getDescription())
+                    .priority(task.getPriority())
+                    .user(task.getUser())
+                    .build();
+            taskDTOS.add(taskDTO);
+        }
+
+        return taskDTOS;
     }
 
     @Override
-    public List<Task> findTasksByUserId(Long id) {
+    public List<TaskDTO> findTasksByUserId(Long id) {
         List<Task> tasks = taskRepository.findAllTasksByUser(userRepository.getOne(id));
-        return tasks;
+        List<TaskDTO> taskDTOS = new ArrayList<>();
+        for (Task task : tasks) {
+            TaskDTO taskDTO = TaskDTO.builder()
+                    .taskId(task.getTaskId())
+                    .complete(task.getComplete())
+                    .description(task.getDescription())
+                    .priority(task.getPriority())
+                    .user(task.getUser())
+                    .build();
+            taskDTOS.add(taskDTO);
+        }
+
+        return taskDTOS;
     }
 
     @Override
-    public Task createTask(Task task, User user) {
+    public TaskDTO createTask(Task task, User user) {
         task.setUser(user);
-        return taskRepository.save(task);
+        taskRepository.save(task);
+        TaskDTO taskDTO = TaskDTO.builder()
+                .taskId(task.getTaskId())
+                .complete(task.getComplete())
+                .description(task.getDescription())
+                .priority(task.getPriority())
+                .user(task.getUser())
+                .build();
+        return taskDTO;
 
     }
 
@@ -77,13 +121,34 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task updateTask(Task task) {
-        return taskRepository.save(task);
+    public TaskDTO updateTask(Task task) {
+        taskRepository.save(task);
+        TaskDTO taskDTO = TaskDTO.builder()
+                .taskId(task.getTaskId())
+                .complete(task.getComplete())
+                .description(task.getDescription())
+                .priority(task.getPriority())
+                .user(task.getUser())
+                .build();
+        return taskDTO;
     }
 
     @Override
-    public Task getById(Long idTask) {
-        return taskRepository.getOne(idTask);
+    public Task getTaskById(Long id) {
+        return taskRepository.getOne(id);
+    }
+
+    @Override
+    public TaskDTO getById(Long idTask) {
+        Task task = taskRepository.getOne(idTask);
+        TaskDTO taskDTO = TaskDTO.builder()
+                .taskId(task.getTaskId())
+                .complete(task.getComplete())
+                .description(task.getDescription())
+                .priority(task.getPriority())
+                .user(task.getUser())
+                .build();
+        return taskDTO;
     }
 
 
@@ -116,7 +181,21 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> findAllTask() {
-        return taskRepository.findAll(Sort sort);
+    public List<TaskDTO> findAllTaskSorted() {
+        List<Task> tasks = taskRepository.findAll();
+        List<TaskDTO> taskDTOS = new ArrayList<>();
+        for (Task task : tasks) {
+            TaskDTO taskDTO = TaskDTO.builder()
+                    .taskId(task.getTaskId())
+                    .complete(task.getComplete())
+                    .description(task.getDescription())
+                    .priority(task.getPriority())
+                    .user(task.getUser())
+                    .build();
+            taskDTOS.add(taskDTO);
+        }
+        Comparator<TaskDTO> comparator = Comparator.comparing(obj -> obj.getPriority());
+        Collections.sort(taskDTOS, comparator);
+        return taskDTOS;
     }
 }

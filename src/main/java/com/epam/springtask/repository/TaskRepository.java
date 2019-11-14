@@ -2,6 +2,10 @@ package com.epam.springtask.repository;
 
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -23,5 +27,6 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     @Modifying
     @Query("update Task t set t.complete = false where t.id = ?1")
     Boolean markTaskAsUncompleted(Long id);
+
 
 }

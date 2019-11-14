@@ -3,16 +3,17 @@ package com.epam.springtask.service;
 import com.epam.springtask.domain.Priority;
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
+import com.epam.springtask.dto.TaskDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface TaskService {
-    List<Task> findTasksByUser(User user);
+    List<TaskDTO> findTasksByUser(User user);
 
-    List<Task> findTasksByUserId(Long id);
+    List<TaskDTO> findTasksByUserId(Long id);
 
-    Task createTask(Task task, User user);
+    TaskDTO createTask(Task task, User user);
 
     Long deleteTask(Long id);
 
@@ -20,11 +21,13 @@ public interface TaskService {
 
     Boolean markTaskAsUncompleted(Long id);
 
-    Task updateTask(Task task);
+    TaskDTO updateTask(Task task);
 
-    Task getById(Long idTask);
+    TaskDTO getById(Long idTask);
 
-    Task setTaskPriority(Priority priority, Long id);
+    Task getTaskById(Long id);
+
+    TaskDTO setTaskPriority(Priority priority, Long id);
 
     public Long deleteTaskById(Long id);
 
@@ -32,5 +35,5 @@ public interface TaskService {
 
     public boolean checkSubscribeByUserId(Long id);
 
-    List<Task> findAllTask();
+    List<TaskDTO> findAllTaskSorted();
 }

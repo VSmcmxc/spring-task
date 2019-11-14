@@ -3,6 +3,7 @@ package com.epam.springtask.controller;
 
 import com.epam.springtask.domain.Task;
 import com.epam.springtask.domain.User;
+import com.epam.springtask.dto.TaskDTO;
 import com.epam.springtask.dto.UserDTO;
 import com.epam.springtask.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,20 +28,20 @@ public class TaskController {
     @ResponseBody
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Task getTask(@PathVariable long id) {
+    public TaskDTO getTask(@PathVariable long id) {
         return taskService.getById(id);
     }
 
     @GetMapping("/users/{idUser}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Task> getTaskByUser(@PathVariable Long idUser) {
+    public List<TaskDTO> getTaskByUser(@PathVariable Long idUser) {
         return taskService.findTasksByUserId(idUser);
     }
 
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public Task createTask(@RequestBody Task task, @RequestBody User user) {
+    public TaskDTO createTask(@RequestBody Task task, @RequestBody User user) {
         return taskService.createTask(task, user);
     }
 
@@ -52,8 +53,8 @@ public class TaskController {
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{id}")
-    public Task createTask(@PathVariable Long id) {
-        return taskService.updateTask(taskService.getById(id));
+    public TaskDTO createTask(@PathVariable Long id) {
+        return taskService.updateTask(taskService.getTaskById(id));
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -73,12 +74,11 @@ public class TaskController {
         return taskService.upload(file, id);
     }
 
+    @GetMapping("/sorted")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/")
-    public List<Task> getAllUsers() {
-        return taskService.();
+    public List<TaskDTO> getSortedTasks() {
+        return taskService.findAllTaskSorted();
     }
-
 
 
 }

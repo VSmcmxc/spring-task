@@ -39,7 +39,7 @@ public class SpringTaskApplication {
 
 
 
-          /*  // fetch an individual customer by ID
+         /*   // fetch an individual customer by ID
             Optional<User> user = repository.findById(1L);
             log.info("User found with findById(1L):");
             log.info("--------------------------------");
