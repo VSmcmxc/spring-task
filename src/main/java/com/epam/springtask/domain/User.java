@@ -1,10 +1,11 @@
 package com.epam.springtask.domain;
 
 
-import com.epam.springtask.repository.PriorityJpaConverter;
 import com.epam.springtask.repository.RoleJpaConverter;
-import lombok.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "user")
 public class User {
 
     @Id

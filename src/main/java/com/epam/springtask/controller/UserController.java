@@ -1,7 +1,6 @@
 package com.epam.springtask.controller;
 
 
-import com.epam.springtask.domain.User;
 import com.epam.springtask.dto.UserDTO;
 import com.epam.springtask.dto.UserSignInDTO;
 import com.epam.springtask.service.UserService;

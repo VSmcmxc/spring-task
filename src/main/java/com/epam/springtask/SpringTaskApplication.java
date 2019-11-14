@@ -29,7 +29,7 @@ public class SpringTaskApplication {
 
 
 
-   /* @Bean
+    @Bean
     public CommandLineRunner demo(UserRepository repository) {
         return (args) -> {
             // save a few customers
@@ -37,15 +37,9 @@ public class SpringTaskApplication {
 			repository.save(new User("Aleksey", "Aleksey@mail.com", "password", "1", Role.ADMIN));
 			repository.save(new User("Maria", "Maria@mail.com", "password", "1", Role.USER));
 
-            // fetch all customers
-            log.info("Users found with findAll():");
-            log.info("-------------------------------");
-            for (User user : repository.findAll()) {
-                log.info(user.toString());
-            }
-            log.info("");
 
-            // fetch an individual customer by ID
+
+          /*  // fetch an individual customer by ID
             Optional<User> user = repository.findById(1L);
             log.info("User found with findById(1L):");
             log.info("--------------------------------");
@@ -57,7 +51,7 @@ public class SpringTaskApplication {
             log.info("--------------------------------------------");
 
 
-            log.info("");
+            log.info("");*/
         };
-    }*/
+    }
 }

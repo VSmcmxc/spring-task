@@ -7,7 +7,6 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "task")
 @Builder
 @NoArgsConstructor
 @Data
