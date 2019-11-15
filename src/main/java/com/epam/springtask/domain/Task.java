@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Builder
@@ -23,8 +24,10 @@ public class Task {
     @Column
     private String description;
     @Column
+    @NotNull(message = "Complete should be valid")
     private Boolean complete;
     @Convert(converter = PriorityJpaConverter.class)
+    @NotNull(message = "Priority should be valid")
     private Priority priority;
     @ManyToOne
     @JoinColumn(name = "id_user")

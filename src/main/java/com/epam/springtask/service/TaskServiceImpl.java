@@ -92,7 +92,6 @@ public class TaskServiceImpl implements TaskService {
                 .build();
 
         taskRepository.save(task);
-        System.out.println("taskDTO");
         return taskDTO;
     }
 

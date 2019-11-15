@@ -30,7 +30,7 @@ public class Checker {
 
     @Around("handle()")
     public void checkSubscribe(ProceedingJoinPoint joinPoint) throws Throwable {
-        //Подменил кастомный exception
+
         Object[] args = joinPoint.getArgs();
         TaskDTO taskDTO = (TaskDTO)args[0];
         User user = userRepository.getOne(taskDTO.getId_user());

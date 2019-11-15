@@ -38,8 +38,8 @@ public class TaskController {
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public TaskDTO createTask(@RequestBody TaskDTO task) {
-        return taskService.createTask(task);
+    public void createTask(@RequestBody TaskDTO task) {
+        taskService.createTask(task);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
